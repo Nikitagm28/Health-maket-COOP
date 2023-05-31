@@ -1,40 +1,59 @@
-import kivy
 from kivy.app import App
-from kivy.uix.label import Label
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.image import Image
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-from kivy.uix.gridlayout import GridLayout
 
-class LoginScreen(GridLayout):
 
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.image import Image
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.core.window import Window
+
+class LoginScreen(BoxLayout):
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
-        self.cols = 2
+        self.orientation = "vertical"
+        Window.clearcolor = (1, 1, 1, 1)
+        self.spacing = 20
+        # self.background_color = [1, 1, 1, 1] # здесь нулевое значение позволит видеть фон
 
-        self.add_widget(Label(text='Username'))
-        self.username = TextInput(multiline=False)
-        self.add_widget(self.username)
+        # добавляем лого
+        image = Image(source="Logo.png", size_hint=(1, 1))
+        image.pos_hint = {"center_x": 0.5, "center_y": 0.5} # позиционируем лого по центру экрана
+        self.add_widget(image)
 
-        self.add_widget(Label(text='Password'))
-        self.password = TextInput(password=True, multiline=False)
-        self.add_widget(self.password)
+        # располагаем текстовые поля в центре экрана
+        login_layout = BoxLayout(size_hint=(0.5, None), height=50, pos_hint={"center_x": 0.5})
+        login_layout.add_widget(TextInput(hint_text="Логин", multiline=False))
+        self.add_widget(login_layout)
 
-        self.button = Button(text='Login')
-        self.add_widget(Label())
-        self.add_widget(self.button)
+        password_layout = BoxLayout(size_hint=(0.5, None), height=50, pos_hint={"center_x": 0.5})
+        password_layout.add_widget(TextInput(hint_text="Пароль", password=True, multiline=False))
+        self.add_widget(password_layout)
 
-        self.button.bind(on_press=self.login)
+        # добавляем кнопку
+        button_layout = BoxLayout(size_hint=(0.5, None), height=50, pos_hint={"center_x": 0.5})
+        button_layout.add_widget(Button(text="Войти", background_color = (0, 1, 0, 0.75)))
+        self.add_widget(button_layout)
 
-    def login(self, instance):
-        # Do your login validation here
-        username = self.username.text
-        password = self.password.text
-        # Check the username and password and perform the appropriate action
+        button_layout = BoxLayout(size_hint=(0.5, None), height=50, pos_hint={"center_x": 0.5})
+        button_layout.add_widget(Button(text="Регистрация", background_color = (0, 1, 0, 0.9)))
+        self.add_widget(button_layout)
 
-class MyApp(App):
-
+class LoginApp(App):
     def build(self):
         return LoginScreen()
 
-if __name__ == '__main__':
-    MyApp().run()
+
+LoginApp().run()
+
+
+class LoginApp(App):
+    def build(self):
+        return LoginScreen()
+
+
+LoginApp().run()
