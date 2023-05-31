@@ -1,0 +1,48 @@
+<LoginScreen>:
+    orientation: "vertical"
+    spacing: 20
+    
+    # добавляем лого
+    Image:
+        source: "Logo.png"
+        size_hint: 1, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    
+    # располагаем текстовые поля в центре экрана
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Логин"
+            multiline: False
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Пароль"
+            password: True
+            multiline: False
+    
+    # добавляем кнопки
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        Button:
+            text: "Войти"
+            background_color: 0, 1, 0, 1
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        Button:
+            text: "Регистрация"
+            background_color: 0, 0.5, 0, 1
+    
+    Widget:
+        size_hint: 1, None
+        height: 50
