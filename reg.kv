@@ -1,0 +1,83 @@
+<RegisterScreen>:
+    orientation: "vertical"
+    spacing: 20
+    
+    # добавляем лого
+    Image:
+        source: "Logo.png"
+        size_hint: 1, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    
+    # располагаем текстовые поля в центре экрана
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Name"
+            multiline: False
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Фамилия"
+            password: True
+            multiline: False
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Возраст"
+            password: True
+            multiline: False
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Группа крови"
+            password: True
+            multiline: False
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Заболевания"
+            password: True
+            multiline: False
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Аллергические реакции"
+            password: True
+            multiline: False
+    
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        TextInput:
+            hint_text: "Вес"
+            password: True
+            multiline: False
+    
+    # кнопка "Зарегистрироваться"
+    BoxLayout:
+        size_hint: 0.5, None
+        height: 50
+        pos_hint: {"center_x": 0.5}
+        Button:
+            text: "Зарегистрироваться"
+            background_color: 0, 1, 0, 0.9
+            on_press: root.on_button_press(self)
+            on_release: root.on_button_release(self)
